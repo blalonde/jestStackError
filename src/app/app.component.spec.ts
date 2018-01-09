@@ -1,7 +1,8 @@
-import { TestBed, async } from '@angular/core/testing';
-
-import { AppComponent } from './app.component';
 import 'jest-preset-angular';
+import { TestBed, async } from '@angular/core/testing';
+import { FormArray, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { AppComponent } from './app.component';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -30,4 +31,9 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
   }));
+
+  it('should fail', () => {
+    const arr = new FormArray([new FormControl('test')]);
+    arr.setValue([]);
+  });
 });
